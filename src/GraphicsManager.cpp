@@ -88,7 +88,7 @@ namespace Himinbjorg
     	// OpenGL error checking
     	GLenum errorCode = GL_NO_ERROR;
     	while((errorCode = glGetError()) != GL_NO_ERROR)
-    		std::cout << "CoreDraw::drawMesh(): OpenGL error: " << gluErrorString(errorCode) << std::endl;
+    		std::cout << "GraphicsManager::drawMesh(): OpenGL error: " << gluErrorString(errorCode) << std::endl;
     }
 
     void GraphicsManager::drawLinesOrtho(Lines &lines, GLuint shader)
@@ -117,7 +117,7 @@ namespace Himinbjorg
     	// OpenGL error checking
     	GLenum errorCode = GL_NO_ERROR;
     	while((errorCode = glGetError()) != GL_NO_ERROR)
-    		std::cout << "CoreDraw::drawLines(): OpenGL error: " << gluErrorString(errorCode) << std::endl;
+    		std::cout << "GraphicsManager::drawLines(): OpenGL error: " << gluErrorString(errorCode) << std::endl;
     }
 
     void GraphicsManager::drawPlaneOrtho(OrthoPlane *plane, Material *material, glm::mat4 *modelMatrix)
@@ -147,7 +147,7 @@ namespace Himinbjorg
     	// OpenGL error checking
     	GLenum errorCode = GL_NO_ERROR;
     	while((errorCode = glGetError()) != GL_NO_ERROR)
-    		std::cout << "CoreDraw::drawMeshOrtho(): OpenGL error: " << gluErrorString(errorCode) << std::endl;
+    		std::cout << "GraphicsManager::drawMeshOrtho(): OpenGL error: " << gluErrorString(errorCode) << std::endl;
     }
 
     void GraphicsManager::drawText(GLuint vao, GLuint vbo, std::string text, Material *material, GLfloat x, GLfloat y, int size)

@@ -20,15 +20,15 @@ namespace Himinbjorg
     {
     	// Core engine components (make sure to initialize them in the correct order)
         messageBus = new MessageBus();
-        coreDraw = new GraphicsManager();
-        coreInput = new InputManager(coreDraw->getWindow(), messageBus);
-        corePhysics = new PhysicsManager(messageBus, coreDraw);
+        graphicsManager = new GraphicsManager();
+        inputManager = new InputManager(graphicsManager->getWindow(), messageBus);
+        physicsManager = new PhysicsManager(messageBus, graphicsManager);
         sceneManager = new SceneManager();
 
         // ECS systems
-        renderingSystem = new RenderingSystem(coreDraw);
+        renderingSystem = new RenderingSystem(graphicsManager);
         inputSystem = new InputSystem(sceneManager->getSceneRoot());
-        cameraSystem = new CameraSystem(coreDraw);
+        cameraSystem = new CameraSystem(graphicsManager);
         behaviorSystem = new BehaviorSystem();
         transformSystem = new TransformSystem();
     }
@@ -44,16 +44,16 @@ namespace Himinbjorg
 
     	// Delete core engine components in reverse creation order
         if(sceneManager) delete sceneManager;
-        if(corePhysics) delete corePhysics; // Must come after sceneManager, since some scene objects need to unregister from collisions
-        if(coreInput) delete coreInput;
-        if(coreDraw) delete coreDraw;
+        if(physicsManager) delete physicsManager; // Must come after sceneManager, since some scene objects need to unregister from collisions
+        if(inputManager) delete inputManager;
+        if(graphicsManager) delete graphicsManager;
         if(messageBus) delete messageBus;
         ResourceManager::getInstance().cleanup();
     }
 
     void HiminbjorgRoot::run()
     {
-    	GLFWwindow *window = coreDraw->getWindow();
+    	GLFWwindow *window = graphicsManager->getWindow();
     	SceneNode *sceneRoot = sceneManager->getSceneRoot();
 
         // FPS
@@ -91,7 +91,7 @@ namespace Himinbjorg
             while(accumulator >= dt)
             {
             	// Update the systems which is dependent on time (i.e. behavior, physics components) using dt
-            	corePhysics->update(dt);
+            	physicsManager->update(dt);
             	accumulator -= dt;
             	t += dt;
             }
@@ -116,7 +116,7 @@ namespace Himinbjorg
 
     GraphicsManager *HiminbjorgRoot::getGraphicsManager()
     {
-    	return coreDraw;
+    	return graphicsManager;
     }
 
     SceneManager *HiminbjorgRoot::getSceneManager()
@@ -126,11 +126,11 @@ namespace Himinbjorg
 
     PhysicsManager *HiminbjorgRoot::getPhysicsManager()
     {
-    	return corePhysics;
+    	return physicsManager;
     }
 
     InputManager *HiminbjorgRoot::getInputManager()
     {
-    	return coreInput;
+    	return inputManager;
     }
 }

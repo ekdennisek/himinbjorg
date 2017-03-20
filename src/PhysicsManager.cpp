@@ -6,10 +6,10 @@
 
 namespace Himinbjorg
 {
-	PhysicsManager::PhysicsManager(MessageBus *messageBus, GraphicsManager *coreDraw)
+	PhysicsManager::PhysicsManager(MessageBus *messageBus, GraphicsManager *graphicsManager)
 	{
 		this->messageBus = messageBus;
-		this->coreDraw = coreDraw;
+		this->graphicsManager = graphicsManager;
 
 		// Set up the message bus listener
 		callbackReference = std::bind(&PhysicsManager::messageBusListener, this, std::placeholders::_1);
@@ -80,7 +80,7 @@ namespace Himinbjorg
 //			vertexBuffer[i*12+11] = color.getZ();
 //		}
 //		Lines lines(vertexBuffer, nrOfLines);
-//		coreDraw->drawLinesOrtho(lines, rs->getShaderPrograms("line"));
+//		graphicsManager->drawLinesOrtho(lines, rs->getShaderPrograms("line"));
 //		froms.clear();
 //		tos.clear();
 //		colors.clear();
@@ -112,7 +112,7 @@ namespace Himinbjorg
 		glGetIntegerv(GL_VIEWPORT, viewport);
 
 		double mouseX, mouseY;
-		glfwGetCursorPos(coreDraw->getWindow(), &mouseX, &mouseY);
+		glfwGetCursorPos(graphicsManager->getWindow(), &mouseX, &mouseY);
 
 		// Create the direction of the picking ray
 		glm::vec3 nearPoint = glm::unProject(glm::vec3(mouseX, viewport[3]-mouseY, 0),
@@ -169,7 +169,7 @@ namespace Himinbjorg
 
 			// Fetch the mouse coordinates
 			double mouseX, mouseY;
-			glfwGetCursorPos(coreDraw->getWindow(), &mouseX, &mouseY);
+			glfwGetCursorPos(graphicsManager->getWindow(), &mouseX, &mouseY);
 
 			// Set up the ray for the ray tracing
 			glm::vec3 rayDirection = glm::vec3(0, 0, -1);
@@ -192,11 +192,11 @@ namespace Himinbjorg
 			/*
 			 * TEST FOR GAME OBJECT HITS
 			 */
-			if(!coreDraw->getActivePerspectiveProjectionMatrix() || !coreDraw->getActiveViewMatrix())
+			if(!graphicsManager->getActivePerspectiveProjectionMatrix() || !graphicsManager->getActiveViewMatrix())
 				return msg;
 
-			ClickableBehaviorComponent *gameObjectHit = (ClickableBehaviorComponent*) rayTest(*coreDraw->getActivePerspectiveProjectionMatrix(),  // will crash if no active camera
-					                                        *coreDraw->getActiveViewMatrix(),  // TODO will crash if no active camera
+			ClickableBehaviorComponent *gameObjectHit = (ClickableBehaviorComponent*) rayTest(*graphicsManager->getActivePerspectiveProjectionMatrix(),  // will crash if no active camera
+					                                        *graphicsManager->getActiveViewMatrix(),  // TODO will crash if no active camera
 										                    *dynamicsWorld);
 			if(gameObjectHit)
 				gameObjectHit->onClick();

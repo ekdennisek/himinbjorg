@@ -18,8 +18,8 @@ Makefile.in
 /stamp-h1
 
 # Further libtool, autoconf and whatnot
-/Makefile
-/Makefile.in
+Makefile
+Makefile.in
 /aclocal.m4
 /autom4te.cache/
 /config.*

@@ -39,7 +39,7 @@ namespace Himinbjorg
 		Message* messageBusListener(Message *msg);
 	private:
 		MessageBus *messageBus;
-		GraphicsManager *coreDraw;
+		GraphicsManager *graphicsManager;
 
 		std::function<Message*(Message*)> callbackReference;
 

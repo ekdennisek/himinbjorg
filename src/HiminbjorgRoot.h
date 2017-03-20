@@ -7,7 +7,6 @@ namespace Himinbjorg
     class GraphicsManager;
     class InputManager;
     class PhysicsManager;
-    class ResourceManager;
     class MessageBus;
     class SceneManager;
     class RenderingSystem;
@@ -15,7 +14,6 @@ namespace Himinbjorg
     class CameraSystem;
     class BehaviorSystem;
     class TransformSystem;
-    class OrthoPlaneRenderingSystem;
 
     class HiminbjorgRoot
     {
@@ -33,9 +31,9 @@ namespace Himinbjorg
         InputManager *getInputManager();
     protected:
         // Core components
-        GraphicsManager *coreDraw;
-        InputManager *coreInput;
-        PhysicsManager *corePhysics;
+        GraphicsManager *graphicsManager;
+        InputManager *inputManager;
+        PhysicsManager *physicsManager;
         SceneManager *sceneManager;
         MessageBus *messageBus;
 

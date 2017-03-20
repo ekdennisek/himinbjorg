@@ -20,7 +20,7 @@ namespace Himinbjorg
 
     	GLenum errorCode = GL_NO_ERROR;
     	while((errorCode = glGetError()) != GL_NO_ERROR)
-    		std::cout << "CoreInput::CoreInput(): OpenGL error: " << gluErrorString(errorCode) << std::endl;
+    		std::cout << "InputManager::InputManager(): OpenGL error: " << gluErrorString(errorCode) << std::endl;
     }
 
     InputManager::~InputManager()
