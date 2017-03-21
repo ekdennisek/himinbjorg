@@ -5,9 +5,6 @@
 
 namespace Himinbjorg
 {
-    // Forward declaration
-    class SceneNode;
-
 	class InputComponent : public Component
 	{
 	public:

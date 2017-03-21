@@ -1,10 +1,10 @@
-#include "ClickableBehaviorComponent.h"
+#include "ClickableComponent.h"
 #include "../MessageBus.h"
 
 namespace Himinbjorg
 {
-	ClickableBehaviorComponent::ClickableBehaviorComponent(MessageBus *messageBus, PhysicsManager *physicsManager, std::string identifier)
-	: BehaviorComponent()
+	ClickableComponent::ClickableComponent(MessageBus *messageBus, PhysicsManager *physicsManager, std::string identifier)
+	: Component(CLICKABLE_COMPONENT)
 	{
 		this->messageBus = messageBus;
 		this->physicsManager = physicsManager;
@@ -15,7 +15,7 @@ namespace Himinbjorg
 		rigidBody = nullptr;
 	}
 
-	ClickableBehaviorComponent::~ClickableBehaviorComponent()
+	ClickableComponent::~ClickableComponent()
 	{
 		// Deallocate everything
 		if(rigidBody) delete rigidBody;
@@ -23,7 +23,7 @@ namespace Himinbjorg
 		if(collisionShape) delete collisionShape;
 	}
 
-	void ClickableBehaviorComponent::onClick()
+	void ClickableComponent::onClick()
 	{
 		char *dataPointer = new char[identifier.size()+1];
 		memcpy(dataPointer, identifier.c_str(), identifier.size()+1);
@@ -31,7 +31,7 @@ namespace Himinbjorg
 		messageBus->sendMessage(msg);
 	}
 
-	std::string ClickableBehaviorComponent::getIdentifier()
+	std::string ClickableComponent::getIdentifier()
 	{
 		return identifier;
 	}

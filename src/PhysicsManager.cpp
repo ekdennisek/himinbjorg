@@ -1,8 +1,8 @@
 #include "PhysicsManager.h"
 #include "MessageBus.h"
-#include "Components/ClickableBehaviorComponent.h"
 #include "GraphicsManager.h"
 #include <GL/glew.h>
+#include "Components/ClickableComponent.h"
 
 namespace Himinbjorg
 {
@@ -185,7 +185,7 @@ namespace Himinbjorg
 
 			if(RayCallback.hasHit())
 			{
-				((ClickableBehaviorComponent*) RayCallback.m_collisionObject->getUserPointer())->onClick();
+				((ClickableComponent*) RayCallback.m_collisionObject->getUserPointer())->onClick();
 				return msg;
 			}
 
@@ -195,7 +195,7 @@ namespace Himinbjorg
 			if(!graphicsManager->getActivePerspectiveProjectionMatrix() || !graphicsManager->getActiveViewMatrix())
 				return msg;
 
-			ClickableBehaviorComponent *gameObjectHit = (ClickableBehaviorComponent*) rayTest(*graphicsManager->getActivePerspectiveProjectionMatrix(),  // will crash if no active camera
+			ClickableComponent *gameObjectHit = (ClickableComponent*) rayTest(*graphicsManager->getActivePerspectiveProjectionMatrix(),  // will crash if no active camera
 					                                        *graphicsManager->getActiveViewMatrix(),  // TODO will crash if no active camera
 										                    *dynamicsWorld);
 			if(gameObjectHit)

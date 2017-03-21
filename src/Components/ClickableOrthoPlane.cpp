@@ -1,11 +1,11 @@
-#include "ClickableOrthoPlaneBehaviorComponent.h"
+#include "ClickableOrthoPlane.h"
 #include "../PhysicsManager.h"
 #include "OrthoPlane.h"
 
 namespace Himinbjorg
 {
-	ClickableOrthoPlaneBehaviorComponent::ClickableOrthoPlaneBehaviorComponent(OrthoPlane *plane, MessageBus *messageBus, PhysicsManager *physicsManager, std::string identifier)
-	: ClickableBehaviorComponent(messageBus, physicsManager, identifier)
+	ClickableOrthoPlane::ClickableOrthoPlane(OrthoPlane *plane, MessageBus *messageBus, PhysicsManager *physicsManager, std::string identifier)
+	: ClickableComponent(messageBus, physicsManager, identifier)
 	{
 		float width = plane->getWidth();
 		float height = plane->getHeight();
@@ -26,13 +26,9 @@ namespace Himinbjorg
 		physicsManager->addRigidGUIbody(rigidBody);
 	}
 
-	ClickableOrthoPlaneBehaviorComponent::~ClickableOrthoPlaneBehaviorComponent()
+	ClickableOrthoPlane::~ClickableOrthoPlane()
 	{
 		// Remove this object from the physics world
 		physicsManager->removeRigidGUIbody(rigidBody);
-	}
-
-	void ClickableOrthoPlaneBehaviorComponent::update()
-	{
 	}
 }

@@ -1,5 +1,5 @@
-#ifndef CLICKABLEBEHAVIORCOMPONENT_H
-#define CLICKABLEBEHAVIORCOMPONENT_H
+#ifndef CLICKABLECOMPONENT_H
+#define CLICKABLECOMPONENT_H
 
 #include "BehaviorComponent.h"
 #include <btBulletCollisionCommon.h>
@@ -13,24 +13,23 @@ namespace Himinbjorg
     class MessageBus;
     class PhysicsManager;
 
-	class ClickableBehaviorComponent: public BehaviorComponent
+	class ClickableComponent: public Component
 	{
 	public:
-		ClickableBehaviorComponent(MessageBus *messageBus, PhysicsManager *physicsManager, std::string identifier);
-		virtual ~ClickableBehaviorComponent();
+		ClickableComponent(MessageBus *messageBus, PhysicsManager *physicsManager, std::string identifier);
+		virtual ~ClickableComponent();
 
 		void onClick();
 
 		std::string getIdentifier();
 	protected:
+		MessageBus *messageBus;
+		PhysicsManager *physicsManager;
+		std::string identifier;
+
 		btCollisionShape *collisionShape;
 		btDefaultMotionState *motionState;
 		btRigidBody *rigidBody;
-
-		MessageBus *messageBus;
-		PhysicsManager *physicsManager;
-
-		std::string identifier;
 	};
 }
 

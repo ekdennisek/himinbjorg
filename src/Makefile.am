@@ -1,8 +1,8 @@
 lib_LTLIBRARIES = libhiminbjorg.la
 libhiminbjorg_la_SOURCES = Components/BehaviorComponent.cpp \
 				 		   Components/CameraComponent.cpp \
-						   Components/ClickableBehaviorComponent.cpp \
-						   Components/ClickableOrthoPlaneBehaviorComponent.cpp \
+						   Components/ClickableComponent.cpp \
+						   Components/ClickableOrthoPlane.cpp \
 					 	   Components/Component.cpp \
 						   Components/GeometryComponent.cpp \
 					 	   Components/InputComponent.cpp \

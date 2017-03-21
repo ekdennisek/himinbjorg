@@ -18,8 +18,8 @@
 // Components
 #include "Components/BehaviorComponent.h"
 #include "Components/CameraComponent.h"
-#include "Components/ClickableBehaviorComponent.h"
-#include "Components/ClickableOrthoPlaneBehaviorComponent.h"
+#include "Components/ClickableComponent.h"
+#include "Components/ClickableOrthoPlane.h"
 #include "Components/Component.h"
 #include "Components/GeometryComponent.h"
 #include "Components/InputComponent.h"
