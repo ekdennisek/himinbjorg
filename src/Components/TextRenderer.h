@@ -1,28 +1,23 @@
-#ifndef COMPONENTS_TEXTRENDERINGCOMPONENT_H
-#define COMPONENTS_TEXTRENDERINGCOMPONENT_H
+#ifndef TEXTRENDERER_H
+#define TEXTRENDERER_H
 
 #include "RenderingComponent.h"
-#include "GeometryComponent.h"
-#include <GL/glew.h>
-#include <string>
 
 namespace Himinbjorg
 {
     // Forward declaration
     class Material;
+    class Text;
 
-	class TextRenderer : public RenderingComponent, public GeometryComponent
+	class TextRenderer : public RenderingComponent
 	{
 	public:
-		TextRenderer(std::string text, int size, GLfloat left, GLfloat top, Material *material, int depth);
+		TextRenderer(Text *text, Material *material, int depth);
 		virtual ~TextRenderer();
 
 		void render(GraphicsManager *graphicsManager);
 	private:
-		std::string text;
-		int size;
-		GLfloat left;
-		GLfloat top;
+		Text *text;
 	};
 }
 

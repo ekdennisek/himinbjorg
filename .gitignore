@@ -99,3 +99,7 @@ local.properties
 .worksheet
 
 # End of https://www.gitignore.io/api/eclipse
+
+# Misc build files
+*.o
+ar-lib

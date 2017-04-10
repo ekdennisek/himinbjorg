@@ -12,6 +12,7 @@ libhiminbjorg_la_SOURCES = Components/BehaviorComponent.cpp \
 					 	   Components/OrthoPlane.cpp \
 					 	   Components/OrthoPlaneRenderer.cpp \
 					 	   Components/RenderingComponent.cpp \
+						   Components/Text.cpp \
 					 	   Components/TextRenderer.cpp \
 					 	   Components/TransformComponent.cpp \
 					 	   Systems/BehaviorSystem.cpp \
@@ -29,6 +30,38 @@ libhiminbjorg_la_SOURCES = Components/BehaviorComponent.cpp \
 					 	   ResourceManager.cpp \
 					 	   SceneManager.cpp \
 					 	   SceneNode.cpp
-include_HEADERS = Himinbjorg.h
+includefolderdir = $(includedir)/himinbjorg
+includefolder_HEADERS = Himinbjorg.h \
+				  Components/BehaviorComponent.h \
+				  Components/CameraComponent.h \
+				  Components/ClickableComponent.h \
+				  Components/ClickableOrthoPlane.h \
+				  Components/Component.h \
+				  Components/GeometryComponent.h \
+				  Components/InputComponent.h \
+				  Components/Lines.h \
+				  Components/Mesh.h \
+				  Components/MeshRenderer.h \
+				  Components/OrthoPlane.h \
+				  Components/OrthoPlaneRenderer.h \
+				  Components/RenderingComponent.h \
+				  Components/Text.h \
+				  Components/TextRenderer.h \
+				  Components/TransformComponent.h \
+				  Systems/BehaviorSystem.h \
+				  Systems/CameraSystem.h \
+				  Systems/InputSystem.h \
+				  Systems/RenderingSystem.h \
+				  Systems/TransformSystem.h \
+				  GraphicsManager.h \
+				  HiminbjorgRoot.h \
+				  InputManager.h \
+				  Material.h \
+				  Message.h \
+				  MessageBus.h \
+				  PhysicsManager.h \
+				  ResourceManager.h \
+				  SceneManager.h \
+				  SceneNode.h
 libhiminbjorg_la_CPPFLAGS = ${glfw3_CFLAGS} ${bullet_CFLAGS} ${freetype2_CFLAGS}
 libhiminbjorg_la_LIBADD = ${glfw3_LIBS} ${glew_LIBS} ${gl_LIBS} ${icu_LIBS} -lSOIL ${bullet_LIBS} ${freetype2_LIBS}

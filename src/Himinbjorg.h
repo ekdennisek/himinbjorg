@@ -29,6 +29,7 @@
 #include "Components/OrthoPlane.h"
 #include "Components/OrthoPlaneRenderer.h"
 #include "Components/RenderingComponent.h"
+#include "Components/Text.h"
 #include "Components/TextRenderer.h"
 #include "Components/TransformComponent.h"
 
