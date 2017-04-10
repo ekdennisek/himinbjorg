@@ -4,7 +4,7 @@
 
 namespace Himinbjorg
 {
-	InputSystem::InputSystem(const SceneNode * const sceneRoot)
+	InputSystem::InputSystem(SceneNode *sceneRoot)
 	{
 		this->sceneRoot = sceneRoot;
 	}
@@ -18,7 +18,7 @@ namespace Himinbjorg
 		traverse(sceneRoot);
 	}
 
-	void InputSystem::traverse(const SceneNode * const sceneNode)
+	void InputSystem::traverse(SceneNode *sceneNode)
 	{
     	std::vector<Component*> inputComponents = sceneNode->findComponents(INPUT_COMPONENT);
     	for(std::vector<Component*>::iterator it = inputComponents.begin(); it != inputComponents.end(); it++)

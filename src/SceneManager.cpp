@@ -13,25 +13,25 @@ namespace Himinbjorg
         if(sceneRoot) delete sceneRoot;
     }
 
-    SceneNode *SceneManager::getSceneRoot() const
+    SceneNode *SceneManager::getSceneRoot()
     {
         return sceneRoot;
     }
 
-    const SceneNode *SceneManager::findNode(const std::string identifier)
+    SceneNode *SceneManager::findNode(std::string identifier)
     {
     	return search(sceneRoot, identifier);
     }
 
-    const SceneNode *SceneManager::search(const SceneNode * const sceneNode, const std::string identifier) const
+    SceneNode *SceneManager::search(SceneNode *sceneNode, std::string identifier)
     {
     	if(sceneNode->getIdentifier().compare(identifier) == 0)
     		return sceneNode;
 
-    	const std::set<SceneNode*> *children = sceneNode->getChildren();
+    	std::set<SceneNode*> *children = sceneNode->getChildren();
     	for(std::set<SceneNode*>::iterator it = children->begin(); it != children->end(); it++)
     	{
-    		const SceneNode *currentChild = search(*it, identifier);
+    		SceneNode *currentChild = search(*it, identifier);
     		if(currentChild && currentChild->getIdentifier().compare(identifier) == 0)
     			return *it;
     	}

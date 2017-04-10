@@ -13,12 +13,12 @@ namespace Himinbjorg
 	class OrthoPlaneRenderer: public RenderingComponent
 	{
 	public:
-		OrthoPlaneRenderer(const OrthoPlane *const plane, const Material *const material, const int depth);
+		OrthoPlaneRenderer(OrthoPlane *plane, Material *material, int depth);
 		virtual ~OrthoPlaneRenderer();
 
-		void render(const GraphicsManager * const graphicsManager);
+		void render(GraphicsManager *graphicsManager);
 	private:
-		const OrthoPlane *plane;
+		OrthoPlane *plane;
 	};
 }
 

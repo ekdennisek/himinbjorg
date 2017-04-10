@@ -3,7 +3,7 @@
 
 namespace Himinbjorg
 {
-	ClickableComponent::ClickableComponent(MessageBus * const messageBus, PhysicsManager * const physicsManager, const std::string identifier)
+	ClickableComponent::ClickableComponent(MessageBus *messageBus, PhysicsManager *physicsManager, std::string identifier)
 	: Component(CLICKABLE_COMPONENT)
 	{
 		this->messageBus = messageBus;
@@ -31,7 +31,7 @@ namespace Himinbjorg
 		messageBus->sendMessage(msg);
 	}
 
-	std::string ClickableComponent::getIdentifier() const
+	std::string ClickableComponent::getIdentifier()
 	{
 		return identifier;
 	}

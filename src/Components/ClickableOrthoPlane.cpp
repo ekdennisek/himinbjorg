@@ -4,7 +4,7 @@
 
 namespace Himinbjorg
 {
-	ClickableOrthoPlane::ClickableOrthoPlane(const OrthoPlane * const plane, MessageBus * const messageBus, PhysicsManager * physicsManager, const std::string identifier)
+	ClickableOrthoPlane::ClickableOrthoPlane(OrthoPlane *plane, MessageBus *messageBus, PhysicsManager *physicsManager, std::string identifier)
 	: ClickableComponent(messageBus, physicsManager, identifier)
 	{
 		float width = plane->getWidth();

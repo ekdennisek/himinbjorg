@@ -13,18 +13,18 @@ namespace Himinbjorg
     class MeshRenderer : public RenderingComponent
     {
     public:
-        MeshRenderer(const Mesh * const mesh, const Material *const material);
+        MeshRenderer(Mesh *mesh, Material *material);
         virtual ~MeshRenderer();
 
-        virtual void render(const GraphicsManager * const graphicsManager);
+        virtual void render(GraphicsManager *graphicsManager);
 
         // Setters
-        void setMesh(const Mesh * const mesh);
+        void setMesh(Mesh *mesh);
 
         // Getter
-        const Mesh* getMesh() const;
+        Mesh* getMesh();
     private:
-        const Mesh *mesh;
+        Mesh *mesh;
     };
 }
 

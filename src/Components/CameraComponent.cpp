@@ -6,7 +6,7 @@
 
 namespace Himinbjorg
 {
-	CameraComponent::CameraComponent(const int width, const int height)
+	CameraComponent::CameraComponent(int width, int height)
 	: Component(CAMERA_COMPONENT)
 	{
 		projectionMatrix = glm::perspective(45.0f, (float)width/(float)height, 0.1f, 100.0f);
@@ -20,11 +20,11 @@ namespace Himinbjorg
 	{
 	}
 
-	void CameraComponent::update(GraphicsManager * const graphicsManager)
+	void CameraComponent::update(GraphicsManager *graphicsManager)
 	{
 		// TODO: Store the view matrix and only update when needed?
 		TransformComponent *transform = (TransformComponent*) parent->findComponents(TRANSFORM_COMPONENT).front();
-		const float *position = transform->getPosition();
+		float *position = transform->getPosition();
 		viewMatrix = glm::lookAt(glm::vec3(position[0], position[1], position[2]), // position
 				                 glm::vec3(position[0], position[1]-10, position[2]-10), // look at
 								 glm::vec3(0.0f, 1.0f, 0.0f)); // up vector
@@ -32,22 +32,22 @@ namespace Himinbjorg
 		graphicsManager->setActiveCamera(&projectionMatrix, &viewMatrix);
 	}
 
-	void CameraComponent::setActive(const bool active)
+	void CameraComponent::setActive(bool active)
 	{
 		this->active = active;
 	}
 
-	const glm::mat4 *CameraComponent::getProjectionMatrix() const
+	glm::mat4 *CameraComponent::getProjectionMatrix()
 	{
 		return &projectionMatrix;
 	}
 
-	const glm::mat4 *CameraComponent::getViewMatrix() const
+	glm::mat4 *CameraComponent::getViewMatrix()
 	{
 		return &viewMatrix;
 	}
 
-	bool CameraComponent::isActive() const
+	bool CameraComponent::isActive()
 	{
 		return active;
 	}

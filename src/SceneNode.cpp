@@ -51,11 +51,13 @@ namespace Himinbjorg
     			components.erase(it);
     }
 
-    std::vector<Component*> SceneNode::findComponents(ComponentType type) const
+    std::vector<Component*> SceneNode::findComponents(ComponentType type)
     {
     	std::vector<Component*> result;
 
-    	for(std::vector<Component*>::const_iterator it = components.begin(); it != components.end(); it++)
+    	std::vector<Component*>::iterator iter = components.begin();
+
+    	for(std::vector<Component*>::iterator it = components.begin(); it != components.end(); it++)
     		if((*it)->getComponentType() == type)
     			result.push_back(*it);
 
@@ -79,17 +81,17 @@ namespace Himinbjorg
     		children.erase(it);
     }
 
-    const std::set<SceneNode*> *SceneNode::getChildren() const
+    std::set<SceneNode*> *SceneNode::getChildren()
     {
     	return &children;
     }
 
-    SceneNode *SceneNode::getParent() const
+    SceneNode *SceneNode::getParent()
     {
     	return parent;
     }
 
-    std::string SceneNode::getIdentifier() const
+    std::string SceneNode::getIdentifier()
     {
     	return identifier;
     }

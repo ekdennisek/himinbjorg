@@ -58,7 +58,7 @@ namespace Himinbjorg
         glfwTerminate();
     }
 
-    void GraphicsManager::drawMesh(const Mesh * const mesh, const Material * const material, const glm::mat4 * const modelMatrix) const
+    void GraphicsManager::drawMesh(Mesh *mesh, Material *material, glm::mat4 *modelMatrix)
     {
     	glUseProgram(material->getShader());
     	glBindTexture(GL_TEXTURE_2D, material->getTexture());
@@ -91,7 +91,7 @@ namespace Himinbjorg
     		std::cout << "GraphicsManager::drawMesh(): OpenGL error: " << gluErrorString(errorCode) << std::endl;
     }
 
-    void GraphicsManager::drawLinesOrtho(const Lines &lines, const GLuint shader) const
+    void GraphicsManager::drawLinesOrtho(Lines &lines, GLuint shader)
     {
     	glUseProgram(shader);
     	glBindVertexArray(lines.getVao());
@@ -120,7 +120,7 @@ namespace Himinbjorg
     		std::cout << "GraphicsManager::drawLines(): OpenGL error: " << gluErrorString(errorCode) << std::endl;
     }
 
-    void GraphicsManager::drawPlaneOrtho(const OrthoPlane * const plane, const Material * const material, const glm::mat4 *modelMatrix) const
+    void GraphicsManager::drawPlaneOrtho(OrthoPlane *plane, Material *material, glm::mat4 *modelMatrix)
     {
     	glUseProgram(material->getShader());
     	glBindTexture(GL_TEXTURE_2D, material->getTexture());
@@ -150,7 +150,7 @@ namespace Himinbjorg
     		std::cout << "GraphicsManager::drawMeshOrtho(): OpenGL error: " << gluErrorString(errorCode) << std::endl;
     }
 
-    void GraphicsManager::drawText(const GLuint vao, const GLuint vbo, const std::string text, const Material * const material, GLfloat x, GLfloat y, const int size) const
+    void GraphicsManager::drawText(GLuint vao, GLuint vbo, std::string text, Material *material, GLfloat x, GLfloat y, int size)
     {
     	Glyph *glyphs = ResourceManager::getInstance().getFont("truetype/ubuntu-font-family/Ubuntu-C.ttf", size);
 
@@ -204,33 +204,33 @@ namespace Himinbjorg
     	glBindTexture(GL_TEXTURE_2D, 0);
     }
 
-    void GraphicsManager::setActiveCamera(const glm::mat4 * const projectionMatrix, const glm::mat4 * const viewMatrix)
+    void GraphicsManager::setActiveCamera(glm::mat4 *projectionMatrix, glm::mat4 *viewMatrix)
     {
     	this->perspectiveProjectionMatrix = projectionMatrix;
     	this->perspectiveViewMatrix = viewMatrix;
     }
 
-    const glm::mat4 *GraphicsManager::getActivePerspectiveProjectionMatrix() const
+    glm::mat4 *GraphicsManager::getActivePerspectiveProjectionMatrix()
     {
     	return perspectiveProjectionMatrix;
     }
 
-    const glm::mat4 *GraphicsManager::getActiveViewMatrix() const
+    glm::mat4 *GraphicsManager::getActiveViewMatrix()
     {
     	return perspectiveViewMatrix;
     }
 
-    const glm::mat4 &GraphicsManager::getActiveOrthoProjectionMatrix() const
+    const glm::mat4 &GraphicsManager::getActiveOrthoProjectionMatrix()
     {
     	return orthoProjectionMatrix;
     }
 
-    const glm::mat4 &GraphicsManager::getActiveOrthoViewMatrix() const
+    const glm::mat4 &GraphicsManager::getActiveOrthoViewMatrix()
     {
     	return orthoViewMatrix;
     }
 
-    void GraphicsManager::setDepthTest(const bool depthTest)
+    void GraphicsManager::setDepthTest(bool depthTest)
     {
     	if(depthTest)
     		glEnable(GL_DEPTH_TEST);
@@ -238,7 +238,7 @@ namespace Himinbjorg
     		glDisable(GL_DEPTH_TEST);
     }
 
-    glm::vec2 GraphicsManager::getTextDimensions(const std::string text, const int size) const
+    glm::vec2 GraphicsManager::getTextDimensions(std::string text, int size)
     {
     	Glyph *glyphs = ResourceManager::getInstance().getFont("truetype/ubuntu-font-family/Ubuntu-C.ttf", size);
 
@@ -256,7 +256,7 @@ namespace Himinbjorg
     	return glm::vec2(width, height);
     }
 
-    GLFWwindow *GraphicsManager::getWindow() const
+    GLFWwindow *GraphicsManager::getWindow()
     {
     	return this->window;
     }

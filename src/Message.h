@@ -11,12 +11,11 @@ namespace Himinbjorg
 		               MOUSE_MOVE, MOUSE_CLICK, MOUSE_RELEASE,
 		               NONE };
 
-        Message(const Type type, const SubType subType, const char * const data);
+        Message(Type type, SubType subType, char *data);
         virtual ~Message();
-
         Type type;
         SubType subType;
-        const char *data;
+        char *data;
     };
 }
 

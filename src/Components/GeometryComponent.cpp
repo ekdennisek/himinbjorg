@@ -27,17 +27,17 @@ namespace Himinbjorg
     		std::cout << "GeometryComponent::~GeometryComponent(): OpenGL error: " << gluErrorString(errorCode) << std::endl;
 	}
 
-	int GeometryComponent::getVertexCount() const
+	int GeometryComponent::getVertexCount()
 	{
 		return vertexCount;
 	}
 
-	GLuint GeometryComponent::getVao() const
+	GLuint GeometryComponent::getVao()
 	{
 		return vao;
 	}
 
-	GLuint GeometryComponent::getVbo() const
+	GLuint GeometryComponent::getVbo()
 	{
 		return vbo;
 	}

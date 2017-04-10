@@ -3,7 +3,7 @@
 
 namespace Himinbjorg
 {
-	OrthoPlane::OrthoPlane(const float left, const float top, const float width, const float height)
+	OrthoPlane::OrthoPlane(float left, float top, float width, float height)
 	{
         this->left = left;
         this->top = top;
@@ -48,22 +48,22 @@ namespace Himinbjorg
 	{
 	}
 
-	int OrthoPlane::getLeft() const
+	int OrthoPlane::getLeft()
 	{
 		return left;
 	}
 
-	int OrthoPlane::getTop() const
+	int OrthoPlane::getTop()
 	{
 		return top;
 	}
 
-	int OrthoPlane::getWidth() const
+	int OrthoPlane::getWidth()
 	{
 		return width;
 	}
 
-	int OrthoPlane::getHeight() const
+	int OrthoPlane::getHeight()
 	{
 		return height;
 	}

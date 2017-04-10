@@ -14,13 +14,13 @@ namespace Himinbjorg
         virtual ~MessageBus();
 
         // Message listeners
-        void registerListener(const std::function<const Message*(const Message*)> listener);
-        void removeListener(const std::function<const Message*(const Message*)> listener);
+        void registerListener(std::function<Message*(Message*)> listener);
+        void removeListener(std::function<Message*(Message*)> listener);
 
         // Messages
-        void sendMessage(const Message * const message) const;
+        void sendMessage(Message* message);
     private:
-        std::vector<std::function<const Message*(const Message*)>> listeners;
+        std::vector<std::function<Message*(Message*)>> listeners;
     };
 }
 

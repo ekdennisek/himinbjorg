@@ -3,7 +3,7 @@
 
 namespace Himinbjorg
 {
-    Mesh::Mesh(const std::string identifier, float * const vertexBuffer, const GLsizei vertexCount)
+    Mesh::Mesh(std::string identifier, float *vertexBuffer, GLsizei vertexCount)
     {
         this->identifier = identifier;
         this->vertexBuffer = vertexBuffer;
@@ -45,7 +45,7 @@ namespace Himinbjorg
         if(vertexBuffer) delete[] vertexBuffer;
     }
 
-    std::string Mesh::getIdentifier() const
+    std::string Mesh::getIdentifier()
     {
         return identifier;
     }

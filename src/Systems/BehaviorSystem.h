@@ -16,7 +16,7 @@ namespace Himinbjorg
 		BehaviorSystem();
 		virtual ~BehaviorSystem();
 
-		void update(const SceneNode * const sceneNode);
+		void update(SceneNode *sceneNode);
 	};
 }
 #endif

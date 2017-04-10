@@ -12,7 +12,7 @@ namespace Himinbjorg
 	class ClickableOrthoPlane : public ClickableComponent
 	{
 	public:
-		ClickableOrthoPlane(const OrthoPlane * const plane, MessageBus * const messageBus, PhysicsManager * const physicsManager, const std::string identifier);
+		ClickableOrthoPlane(OrthoPlane *plane, MessageBus *messageBus, PhysicsManager *physicsManager, std::string identifier);
 		virtual ~ClickableOrthoPlane();
 	};
 }

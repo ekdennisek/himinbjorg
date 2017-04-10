@@ -2,7 +2,7 @@
 
 namespace Himinbjorg
 {
-	Text::Text(const std::string text, const int size, const GLfloat left, const GLfloat top)
+	Text::Text(std::string text, int size, GLfloat left, GLfloat top)
 	{
 		this->text = text;
 		this->size = size;
@@ -22,22 +22,22 @@ namespace Himinbjorg
 	{
 	}
 
-	std::string Text::getText() const
+	std::string Text::getText()
 	{
 		return text;
 	}
 
-	int Text::getSize() const
+	int Text::getSize()
 	{
 		return size;
 	}
 
-	GLfloat Text::getLeft() const
+	GLfloat Text::getLeft()
 	{
 		return left;
 	}
 
-	GLfloat Text::getTop() const
+	GLfloat Text::getTop()
 	{
 		return top;
 	}

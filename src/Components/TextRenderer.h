@@ -12,12 +12,12 @@ namespace Himinbjorg
 	class TextRenderer : public RenderingComponent
 	{
 	public:
-		TextRenderer(const Text * const text, const Material * const material, const int depth);
+		TextRenderer(Text *text, Material *material, int depth);
 		virtual ~TextRenderer();
 
-		void render(const GraphicsManager * const graphicsManager);
+		void render(GraphicsManager *graphicsManager);
 	private:
-		const Text *text;
+		Text *text;
 	};
 }
 

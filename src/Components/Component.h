@@ -23,12 +23,12 @@ namespace Himinbjorg
     {
     public:
 
-        Component(const ComponentType componentType);
+        Component(ComponentType componentType);
         virtual ~Component();
 
-        void setParent(SceneNode * const parent);
-        SceneNode *getParent() const;
-        ComponentType getComponentType() const;
+        void setParent(SceneNode *parent);
+        SceneNode *getParent();
+        ComponentType getComponentType();
     protected:
         SceneNode *parent;
         ComponentType componentType;
