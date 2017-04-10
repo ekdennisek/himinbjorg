@@ -2,7 +2,7 @@
 
 namespace Himinbjorg
 {
-    Component::Component(ComponentType componentType)
+    Component::Component(const ComponentType componentType)
     {
         this->componentType = componentType;
         parent = nullptr;
@@ -12,17 +12,17 @@ namespace Himinbjorg
     {
     }
 
-    void Component::setParent(SceneNode *parent)
+    void Component::setParent(SceneNode * const parent)
     {
     	this->parent = parent;
     }
 
-    SceneNode *Component::getParent()
+    SceneNode *Component::getParent() const
     {
     	return parent;
     }
 
-    ComponentType Component::getComponentType()
+    ComponentType Component::getComponentType() const
     {
     	return componentType;
     }

@@ -14,10 +14,10 @@ namespace Himinbjorg
 	class CameraSystem
 	{
 	public:
-		CameraSystem(GraphicsManager *graphicsManager);
+		CameraSystem(GraphicsManager * const graphicsManager);
 		virtual ~CameraSystem();
 
-		void update(SceneNode *sceneNode);
+		void update(const SceneNode * const sceneNode);
 	private:
 		GraphicsManager *graphicsManager;
 	};

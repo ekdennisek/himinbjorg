@@ -17,12 +17,12 @@ namespace Himinbjorg
 	class RenderingSystem
 	{
 	public:
-		RenderingSystem(GraphicsManager *graphicsManager);
+		RenderingSystem(GraphicsManager * const graphicsManager);
 		virtual ~RenderingSystem();
 
-		void buildQueue(SceneNode *sceneNode);
+		void buildQueue(const SceneNode * const sceneNode);
 		void render();
-		static bool sort(RenderingComponent *l, RenderingComponent *r);
+		static bool sort(const RenderingComponent * const l, const RenderingComponent * const r);
 	private:
 		GraphicsManager *graphicsManager;
 		std::list<RenderingComponent*> renderQueue;

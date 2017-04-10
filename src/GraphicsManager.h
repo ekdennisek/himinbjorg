@@ -21,24 +21,24 @@ namespace Himinbjorg
         ~GraphicsManager();
 
         // TODO Create a somewhat unified interface
-        void drawMesh(Mesh *mesh, Material *material, glm::mat4 *modelMatrix);
-        void drawPlaneOrtho(OrthoPlane *plane, Material *material, glm::mat4 *modelMatrix);
-        void drawLinesOrtho(Lines &lines, GLuint shader);
-        void drawText(GLuint vao, GLuint vbo, std::string text, Material *material, GLfloat x, GLfloat y, int size);
+        void drawMesh(const Mesh * const mesh, const Material * const material, const glm::mat4 * const modelMatrix) const;
+        void drawPlaneOrtho(const OrthoPlane * const plane, const Material * const material, const glm::mat4 * const modelMatrix) const;
+        void drawLinesOrtho(const Lines &lines, const GLuint shader) const;
+        void drawText(const GLuint vao, const GLuint vbo, const std::string text, const Material * const material, GLfloat x, GLfloat y, const int size) const;
 
-        void setActiveCamera(glm::mat4 *projectionMatrix, glm::mat4 *viewMatrix);
-        glm::mat4 *getActivePerspectiveProjectionMatrix();
-        glm::mat4 *getActiveViewMatrix();
-        const glm::mat4 &getActiveOrthoProjectionMatrix();
-        const glm::mat4 &getActiveOrthoViewMatrix();
+        void setActiveCamera(const glm::mat4 * const projectionMatrix, const glm::mat4 * const viewMatrix);
+        const glm::mat4 *getActivePerspectiveProjectionMatrix() const;
+        const glm::mat4 *getActiveViewMatrix() const;
+        const glm::mat4 &getActiveOrthoProjectionMatrix() const;
+        const glm::mat4 &getActiveOrthoViewMatrix() const;
 
-        void setDepthTest(bool depthTest);
-        glm::vec2 getTextDimensions(std::string text, int size);
-        GLFWwindow *getWindow();
+        void setDepthTest(const bool depthTest);
+        glm::vec2 getTextDimensions(const std::string text, const int size) const;
+        GLFWwindow *getWindow() const;
     private:
         GLFWwindow *window;
-        glm::mat4 *perspectiveProjectionMatrix;
-        glm::mat4 *perspectiveViewMatrix;
+        const glm::mat4 *perspectiveProjectionMatrix;
+        const glm::mat4 *perspectiveViewMatrix;
         glm::mat4 orthoProjectionMatrix;
         glm::mat4 orthoViewMatrix;
     };

@@ -6,7 +6,7 @@
 
 namespace Himinbjorg {
 
-	RenderingSystem::RenderingSystem(GraphicsManager *graphicsManager)
+	RenderingSystem::RenderingSystem(GraphicsManager * const graphicsManager)
 	{
 		this->graphicsManager = graphicsManager;
 	}
@@ -15,7 +15,7 @@ namespace Himinbjorg {
 	{
 	}
 
-	void RenderingSystem::buildQueue(SceneNode *sceneNode)
+	void RenderingSystem::buildQueue(const SceneNode * const sceneNode)
 	{
 		// Render the current object
     	std::vector<Component*> renderingComponents = sceneNode->findComponents(RENDERING_COMPONENT);
@@ -42,7 +42,7 @@ namespace Himinbjorg {
 		graphicsManager->setDepthTest(true);
 	}
 
-	bool RenderingSystem::sort(RenderingComponent *l, RenderingComponent *r)
+	bool RenderingSystem::sort(const RenderingComponent * const l, const RenderingComponent * const r)
 	{
 		return (*l) < (*r);
 	}

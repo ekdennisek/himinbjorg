@@ -100,7 +100,6 @@ namespace Himinbjorg
             cameraSystem->update(sceneRoot);
             renderingSystem->buildQueue(sceneRoot);
             renderingSystem->render();
-            //guiRenderingSystem->render(sceneRoot);
             glfwSwapBuffers(window);
         }
 
@@ -109,27 +108,27 @@ namespace Himinbjorg
 			std::cout << "HiminbjorgRoot::run(): OpenGL error: " << gluErrorString(errorCode) << std::endl;
     }
 
-    MessageBus *HiminbjorgRoot::getMessageBus()
+    MessageBus *HiminbjorgRoot::getMessageBus() const
     {
         return messageBus;
     }
 
-    GraphicsManager *HiminbjorgRoot::getGraphicsManager()
+    GraphicsManager *HiminbjorgRoot::getGraphicsManager() const
     {
     	return graphicsManager;
     }
 
-    SceneManager *HiminbjorgRoot::getSceneManager()
+    SceneManager *HiminbjorgRoot::getSceneManager() const
     {
     	return sceneManager;
     }
 
-    PhysicsManager *HiminbjorgRoot::getPhysicsManager()
+    PhysicsManager *HiminbjorgRoot::getPhysicsManager() const
     {
     	return physicsManager;
     }
 
-    InputManager *HiminbjorgRoot::getInputManager()
+    InputManager *HiminbjorgRoot::getInputManager() const
     {
     	return inputManager;
     }

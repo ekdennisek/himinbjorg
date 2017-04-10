@@ -15,7 +15,7 @@ namespace Himinbjorg
     	dirty = true;
     }
 
-    TransformComponent::TransformComponent(float* position, float* rotations, float scale)
+    TransformComponent::TransformComponent(const float * const position, const float * const rotations, const float scale)
     : Component(TRANSFORM_COMPONENT)
     {
         for(int i=0; i<3; i++)
@@ -42,7 +42,7 @@ namespace Himinbjorg
     	}
     }
 
-    void TransformComponent::recalculate(TransformComponent *parentTransform)
+    void TransformComponent::recalculate(TransformComponent * const parentTransform)
     {
     	dirty = false;
     	transformationMatrix = (*(parentTransform->getTransformtionMatrix()));
@@ -66,40 +66,40 @@ namespace Himinbjorg
     			                              glm::vec3(position[0], position[1], position[2]));
     }
 
-    void TransformComponent::setPosition(float *position)
+    void TransformComponent::setPosition(const float * const position)
     {
         memcpy(this->position, position, 3*sizeof(GLfloat));
         dirty = true;
     }
 
-    void TransformComponent::setRotations(float *rotations)
+    void TransformComponent::setRotations(const float * const rotations)
     {
     	memcpy(this->rotations, rotations, 3*sizeof(GLfloat));
     	dirty = true;
     }
 
-    void TransformComponent::setScale(float scale)
+    void TransformComponent::setScale(const float scale)
     {
         this->scale = scale;
         dirty = true;
     }
 
-    float *TransformComponent::getPosition()
+    const float *TransformComponent::getPosition() const
     {
         return position;
     }
 
-    float *TransformComponent::getRotations()
+    const float *TransformComponent::getRotations() const
     {
         return rotations;
     }
 
-    float TransformComponent::getScale()
+    float TransformComponent::getScale() const
     {
         return scale;
     }
 
-    bool TransformComponent::isDirty()
+    bool TransformComponent::isDirty() const
     {
     	return dirty;
     }

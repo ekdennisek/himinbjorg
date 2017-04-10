@@ -10,14 +10,14 @@ namespace Himinbjorg
 	class OrthoPlane : public GeometryComponent
 	{
 	public:
-		OrthoPlane(float left, float top, float width, float height);
+		OrthoPlane(const float left, const float top, const float width, const float height);
 		virtual ~OrthoPlane();
 
 		// Getters for the plane properties
-		int getLeft();
-		int getTop();
-		int getWidth();
-		int getHeight();
+		int getLeft() const;
+		int getTop() const;
+		int getWidth() const;
+		int getHeight() const;
 	private:
 		GLfloat left;
 		GLfloat top;

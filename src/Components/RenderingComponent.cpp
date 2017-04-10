@@ -2,7 +2,7 @@
 
 namespace Himinbjorg
 {
-	RenderingComponent::RenderingComponent(Material *material, int depth)
+	RenderingComponent::RenderingComponent(const Material * const material, const int depth)
 	: Component(RENDERING_COMPONENT)
 	{
 		this->material = material;
@@ -13,17 +13,17 @@ namespace Himinbjorg
 	{
 	}
 
-	bool RenderingComponent::operator<(const RenderingComponent &other)
+	bool RenderingComponent::operator<(const RenderingComponent &other) const
 	{
 		return depth < other.depth;
 	}
 
-	void RenderingComponent::setDepth(int depth)
+	void RenderingComponent::setDepth(const int depth)
 	{
 		this->depth = depth;
 	}
 
-	int RenderingComponent::getDepth()
+	int RenderingComponent::getDepth() const
 	{
 		return this->depth;
 	}

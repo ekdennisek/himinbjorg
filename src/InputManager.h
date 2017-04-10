@@ -18,20 +18,20 @@ namespace Himinbjorg
     			   KEY_V, KEY_W, KEY_X, KEY_Y, KEY_Z,
     	           KEY_ESC };
 
-        InputManager(GLFWwindow* window, MessageBus *messageBus);
+        InputManager(GLFWwindow * const window, const MessageBus * const messageBus);
         virtual ~InputManager();
 
         //Keyboard input
-        static void charInputCallback(GLFWwindow* window, unsigned int key);
-        static void keyInputCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
-        bool getKeyState(Key key);
+        static void charInputCallback(GLFWwindow * const window, const unsigned int key);
+        static void keyInputCallback(GLFWwindow * const window, const int key, const int scancode, const int action, const int mods);
+        bool getKeyState(const Key key) const;
 
         // Mouse input
-        static void mouseMovementCallback(GLFWwindow *window, double x, double y);
-        static void mouseClickCallback(GLFWwindow *window, int button, int action, int mods);
+        static void mouseMovementCallback(GLFWwindow * const window, const double x, const double y);
+        static void mouseClickCallback(GLFWwindow * const window, const int button, const int action, const int mods);
     private:
         GLFWwindow *window;
-        MessageBus *messageBus;
+        const MessageBus *messageBus;
     };
 }
 

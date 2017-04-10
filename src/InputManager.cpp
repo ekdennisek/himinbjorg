@@ -7,7 +7,7 @@
 
 namespace Himinbjorg
 {
-    InputManager::InputManager(GLFWwindow* window, MessageBus *messageBus)
+    InputManager::InputManager(GLFWwindow * const window, const MessageBus * const messageBus)
     {
         this->window = window;
         this->messageBus = messageBus;
@@ -31,7 +31,7 @@ namespace Himinbjorg
      * Keyboard input
      */
 
-    void InputManager::charInputCallback(GLFWwindow* window, unsigned int key)
+    void InputManager::charInputCallback(GLFWwindow * const window, const unsigned int key)
     {
         // Since this is a static member function passed to a C API, perform a little magic!
         InputManager *instanceReference = (InputManager*) glfwGetWindowUserPointer(window); 
@@ -50,7 +50,7 @@ namespace Himinbjorg
         instanceReference->messageBus->sendMessage(msg);
     }
 
-    void InputManager::keyInputCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
+    void InputManager::keyInputCallback(GLFWwindow * const window, const int key, const int scancode, const int action, const int mods)
     {
     	// Since this is a static member function passed to a C API, perform a little magic!
     	InputManager *instanceReference = (InputManager*) glfwGetWindowUserPointer(window);
@@ -70,7 +70,7 @@ namespace Himinbjorg
     	instanceReference->messageBus->sendMessage(msg);
     }
 
-    bool InputManager::getKeyState(Key key)
+    bool InputManager::getKeyState(const Key key) const
     {
     	if(key == Key::KEY_A)
     		return (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS);
@@ -94,7 +94,7 @@ namespace Himinbjorg
      * Mouse input
      */
 
-    void InputManager::mouseMovementCallback(GLFWwindow *window, double x, double y)
+    void InputManager::mouseMovementCallback(GLFWwindow * const window, const double x, const double y)
     {
         // Since this is a static member function passed to a C API, perform a little magic!
         InputManager *instanceReference = (InputManager*) glfwGetWindowUserPointer(window);
@@ -109,7 +109,7 @@ namespace Himinbjorg
         instanceReference->messageBus->sendMessage(msg);
     }
 
-    void InputManager::mouseClickCallback(GLFWwindow *window, int button, int action, int mods)
+    void InputManager::mouseClickCallback(GLFWwindow * const window, const int button, const int action, const int mods)
     {
     	// Since this is a static member function passed to a C API, perform a little magic!
     	InputManager *instanceReference = (InputManager*) glfwGetWindowUserPointer(window);

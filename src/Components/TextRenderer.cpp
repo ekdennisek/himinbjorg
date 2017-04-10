@@ -4,7 +4,7 @@
 
 namespace Himinbjorg
 {
-	TextRenderer::TextRenderer(Text *text, Material *material, int depth)
+	TextRenderer::TextRenderer(const Text * const text, const Material * const material, const int depth)
 	: RenderingComponent(material, depth)
 	{
 		this->text = text;
@@ -14,7 +14,7 @@ namespace Himinbjorg
 	{
 	}
 
-	void TextRenderer::render(GraphicsManager *graphicsManager)
+	void TextRenderer::render(const GraphicsManager * const graphicsManager)
 	{
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

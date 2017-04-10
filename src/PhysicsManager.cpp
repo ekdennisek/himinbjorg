@@ -159,7 +159,7 @@ namespace Himinbjorg
 	void PhysicsManager::setDebugMode(int debugMode) {}
 	int  PhysicsManager::getDebugMode() const { return btIDebugDraw::DBG_DrawWireframe; }
 
-	Message *PhysicsManager::messageBusListener(Message *msg)
+	const Message *PhysicsManager::messageBusListener(const Message * const msg)
 	{
 		if(msg->type == Message::MOUSE_INPUT && msg->subType == Message::MOUSE_CLICK)
 		{

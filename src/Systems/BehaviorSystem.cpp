@@ -12,7 +12,7 @@ namespace Himinbjorg
 	{
 	}
 
-    void BehaviorSystem::update(SceneNode *sceneNode)
+    void BehaviorSystem::update(const SceneNode * const sceneNode)
     {
     	std::vector<Component*> behaviorComponents = sceneNode->findComponents(BEHAVIOR_COMPONENT);
     	for(std::vector<Component*>::iterator it = behaviorComponents.begin(); it != behaviorComponents.end(); it++)

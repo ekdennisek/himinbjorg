@@ -36,12 +36,12 @@ namespace Himinbjorg
 		virtual int  getDebugMode() const;
 
 		// Message bus listener
-		Message* messageBusListener(Message *msg);
+		const Message* messageBusListener(const Message * const msg);
 	private:
 		MessageBus *messageBus;
 		GraphicsManager *graphicsManager;
 
-		std::function<Message*(Message*)> callbackReference;
+		std::function<const Message*(const Message*)> callbackReference;
 
 		// Line debug drawing
 		std::vector<btVector3> froms;

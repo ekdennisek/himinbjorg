@@ -8,16 +8,16 @@ namespace Himinbjorg
     class Material
     {
     public:
-        Material(GLuint shader, GLuint texture, float rgba[4]);
-        Material(Material &other);
+        Material(const GLuint shader, const GLuint texture, const float rgba[4]);
+        Material(const Material &other);
         virtual ~Material();
 
         // Setters
-        void setShader(GLuint shader);
+        void setShader(const GLuint shader);
 
         // Getters
-        GLuint getShader();
-        GLuint getTexture();
+        GLuint getShader() const;
+        GLuint getTexture() const;
     private:
         GLuint shader;
         GLuint texture;

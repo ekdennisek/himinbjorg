@@ -17,7 +17,7 @@ namespace Himinbjorg
 		TransformSystem();
 		virtual ~TransformSystem();
 
-		void recalculateMatrices(SceneNode *sceneNode, TransformComponent *parentTransform);
+		void recalculateMatrices(const SceneNode * const sceneNode, TransformComponent * const parentTransform);
 	};
 }
 #endif

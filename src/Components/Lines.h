@@ -8,10 +8,10 @@ namespace Himinbjorg
 	class Lines : public GeometryComponent
 	{
 	public:
-		Lines(GLfloat *vertexBuffer, int nrOfLines);
+		Lines(const GLfloat * const vertexBuffer, const int nrOfLines);
 		virtual ~Lines();
 
-		int getNrOfLines();
+		int getNrOfLines() const;
 	private:
 		int nrOfLines;
 	};

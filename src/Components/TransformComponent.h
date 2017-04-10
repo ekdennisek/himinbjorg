@@ -10,22 +10,22 @@ namespace Himinbjorg
     {
     public:
         TransformComponent();
-        TransformComponent(float* position, float* rotations, float scale);
+        TransformComponent(const float * const position, const float * const rotations, const float scale);
         virtual ~TransformComponent();
 
-        void recalculate(TransformComponent *parentTransform);
+        void recalculate(TransformComponent * const parentTransform);
         void makeDirty();
 
         // Setters
-        void setPosition(float *position);
-        void setRotations(float *rotations);
-        void setScale(float scale);
+        void setPosition(const float * const position);
+        void setRotations(const float * const rotations);
+        void setScale(const float scale);
 
         // Getters
-        float *getPosition();
-        float *getRotations();
-        float getScale();
-        bool isDirty();
+        const float *getPosition() const;
+        const float *getRotations() const;
+        float getScale() const;
+        bool isDirty() const;
         glm::mat4 *getTransformtionMatrix();
     private:
         void calculateMatrix();

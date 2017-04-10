@@ -9,13 +9,13 @@ namespace Himinbjorg
 	class Text: public GeometryComponent
 	{
 	public:
-		Text(std::string text, int size, GLfloat left, GLfloat top);
+		Text(const std::string text, const int size, const GLfloat left, const GLfloat top);
 		virtual ~Text();
 
-		std::string getText();
-		int getSize();
-		GLfloat getLeft();
-		GLfloat getTop();
+		std::string getText() const;
+		int getSize() const;
+		GLfloat getLeft() const;
+		GLfloat getTop() const;
 	private:
 		std::string text;
 		int size;

@@ -13,16 +13,16 @@ namespace Himinbjorg
 	class CameraComponent : public Component
 	{
 	public:
-		CameraComponent(int width, int height);
+		CameraComponent(const int width, const int height);
 		virtual ~CameraComponent();
 
-		void update(GraphicsManager *graphicsManager);
+		void update(GraphicsManager * const graphicsManager);
 
-		void setActive(bool active);
+		void setActive(const bool active);
 
-		glm::mat4 *getProjectionMatrix();
-		glm::mat4 *getViewMatrix();
-		bool isActive();
+		const glm::mat4 *getProjectionMatrix() const;
+		const glm::mat4 *getViewMatrix() const;
+		bool isActive() const;
 	private:
 		glm::mat4 projectionMatrix;
 		glm::mat4 viewMatrix;

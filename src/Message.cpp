@@ -2,7 +2,7 @@
 
 namespace Himinbjorg
 {
-    Message::Message(Type type, SubType subType, char *data)
+    Message::Message(const Type type, const SubType subType, const char * const data)
     {
         this->type = type;
         this->subType = subType;

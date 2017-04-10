@@ -12,21 +12,21 @@ namespace Himinbjorg
 	class RenderingComponent: public Component
 	{
 	public:
-		RenderingComponent(Material *material, int depth = -1);
+		RenderingComponent(const Material * const material, const int depth = -1);
 		virtual ~RenderingComponent();
-		bool operator<(const RenderingComponent &other);
+		bool operator<(const RenderingComponent &other) const;
 
-		virtual void render(GraphicsManager *graphicsManager) = 0;
+		virtual void render(const GraphicsManager * const graphicsManager) = 0;
 
 		// Setters
-		void setMaterial(Material *material);
-		void setDepth(int depth);
+		void setMaterial(const Material * const material);
+		void setDepth(const int depth);
 
 		// Getters
-		Material *getMaterial();
-		int getDepth();
+		Material *getMaterial() const;
+		int getDepth() const;
 	protected:
-		Material *material;
+		const Material *material;
 		int depth; // Used to determine draw order
 	};
 }

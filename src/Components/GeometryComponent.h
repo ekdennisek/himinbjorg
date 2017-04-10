@@ -13,9 +13,9 @@ namespace Himinbjorg
 		virtual ~GeometryComponent();
 
 		// Getters
-		int getVertexCount();
-		GLuint getVao();
-		GLuint getVbo();
+		int getVertexCount() const;
+		GLuint getVao() const;
+		GLuint getVbo() const;
 	protected:
 		GLsizei vertexCount;
 		GLuint vao;

@@ -12,7 +12,7 @@ namespace Himinbjorg
 	{
 	}
 
-	void TransformSystem::recalculateMatrices(SceneNode *sceneNode, TransformComponent *parentTransform)
+	void TransformSystem::recalculateMatrices(const SceneNode * const sceneNode, TransformComponent * const parentTransform)
 	{
 		// Every node contains a Transform. No need to verify it.
     	std::vector<Component*> transformComponents = sceneNode->findComponents(TRANSFORM_COMPONENT);

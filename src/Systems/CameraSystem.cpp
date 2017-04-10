@@ -4,7 +4,7 @@
 
 namespace Himinbjorg
 {
-	CameraSystem::CameraSystem(GraphicsManager *graphicsManager)
+	CameraSystem::CameraSystem(GraphicsManager * const graphicsManager)
 	{
 		this->graphicsManager = graphicsManager;
 	}
@@ -13,7 +13,7 @@ namespace Himinbjorg
 	{
 	}
 
-	void CameraSystem::update(SceneNode *sceneNode)
+	void CameraSystem::update(const SceneNode * const sceneNode)
 	{
 		// Update every CameraComponent
     	std::vector<Component*> cameraComponents = sceneNode->findComponents(CAMERA_COMPONENT);

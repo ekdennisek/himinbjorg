@@ -16,12 +16,12 @@ namespace Himinbjorg
 	class ClickableComponent: public Component
 	{
 	public:
-		ClickableComponent(MessageBus *messageBus, PhysicsManager *physicsManager, std::string identifier);
+		ClickableComponent(MessageBus * const messageBus, PhysicsManager * const physicsManager, const std::string identifier);
 		virtual ~ClickableComponent();
 
 		void onClick();
 
-		std::string getIdentifier();
+		std::string getIdentifier() const;
 	protected:
 		MessageBus *messageBus;
 		PhysicsManager *physicsManager;

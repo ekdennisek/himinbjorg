@@ -6,7 +6,7 @@
 
 namespace Himinbjorg
 {
-    MeshRenderer::MeshRenderer(Mesh *mesh, Material *material)
+    MeshRenderer::MeshRenderer(const Mesh * const mesh, const Material * const material)
     : RenderingComponent(material)
     {
     	this->mesh = mesh;
@@ -17,17 +17,17 @@ namespace Himinbjorg
         if(mesh) delete mesh;
     }
 
-    void MeshRenderer::render(GraphicsManager *graphicsManager)
+    void MeshRenderer::render(const GraphicsManager * const graphicsManager)
     {
     	graphicsManager->drawMesh(mesh, material, ((TransformComponent*) parent->findComponents(TRANSFORM_COMPONENT).front())->getTransformtionMatrix());
     }
 
-    void MeshRenderer::setMesh(Mesh *mesh)
+    void MeshRenderer::setMesh(const Mesh * const mesh)
     {
         this->mesh = mesh;
     }
 
-    Mesh* MeshRenderer::getMesh()
+    const Mesh* MeshRenderer::getMesh() const
     {
     	return mesh;
     }

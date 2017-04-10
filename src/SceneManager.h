@@ -14,10 +14,10 @@ namespace Himinbjorg
         SceneManager();
         virtual ~SceneManager();
 
-        SceneNode *getSceneRoot();
-        SceneNode *findNode(std::string identifier);
+        SceneNode *getSceneRoot() const;
+        const SceneNode *findNode(const std::string identifier);
     private:
-        SceneNode *search(SceneNode *sceneNode, std::string identifier);
+        const SceneNode *search(const SceneNode * const sceneNode, const std::string identifier) const;
 
         SceneNode *sceneRoot;
     };

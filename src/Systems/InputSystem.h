@@ -13,14 +13,14 @@ namespace Himinbjorg
 	class InputSystem
 	{
 	public:
-		InputSystem(SceneNode *sceneRoot);
+		InputSystem(const SceneNode * const sceneRoot);
 		virtual ~InputSystem();
 
 		void update();
 	private:
-		void traverse(SceneNode *sceneNode);
+		void traverse(const SceneNode * const sceneNode);
 
-		SceneNode *sceneRoot;
+		const SceneNode *sceneRoot;
 	};
 }
 

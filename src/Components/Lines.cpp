@@ -3,7 +3,7 @@
 
 namespace Himinbjorg
 {
-	Lines::Lines(GLfloat *vertexBuffer, int nrOfLines)
+	Lines::Lines(const GLfloat * const vertexBuffer, const int nrOfLines)
 	{
 		this->nrOfLines = nrOfLines;
 
@@ -34,7 +34,7 @@ namespace Himinbjorg
 	{
 	}
 
-	int Lines::getNrOfLines()
+	int Lines::getNrOfLines() const
 	{
 		return nrOfLines;
 	}

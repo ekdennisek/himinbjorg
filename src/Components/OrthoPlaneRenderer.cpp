@@ -5,7 +5,7 @@
 
 namespace Himinbjorg
 {
-	OrthoPlaneRenderer::OrthoPlaneRenderer(OrthoPlane *plane, Material *material, int depth)
+	OrthoPlaneRenderer::OrthoPlaneRenderer(const OrthoPlane * const plane, const Material * const material, const int depth)
 	: RenderingComponent(material, depth)
 	{
 		this->plane = plane;
@@ -15,7 +15,7 @@ namespace Himinbjorg
 	{
 	}
 
-	void OrthoPlaneRenderer::render(GraphicsManager *graphicsManager)
+	void OrthoPlaneRenderer::render(const GraphicsManager * const graphicsManager)
 	{
 		TransformComponent *transform = (TransformComponent*) parent->findComponents(TRANSFORM_COMPONENT).front();
 		graphicsManager->drawPlaneOrtho(plane, material, transform->getTransformtionMatrix());

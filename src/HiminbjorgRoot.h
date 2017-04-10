@@ -24,11 +24,11 @@ namespace Himinbjorg
         void run();
 
         // Getters
-        MessageBus *getMessageBus();
-        GraphicsManager *getGraphicsManager();
-        SceneManager *getSceneManager();
-        PhysicsManager *getPhysicsManager();
-        InputManager *getInputManager();
+        MessageBus *getMessageBus() const;
+        GraphicsManager *getGraphicsManager() const;
+        SceneManager *getSceneManager() const;
+        PhysicsManager *getPhysicsManager() const;
+        InputManager *getInputManager() const;
     protected:
         // Core components
         GraphicsManager *graphicsManager;
