@@ -30,9 +30,8 @@ libhiminbjorg_la_SOURCES = Components/BehaviorComponent.cpp \
 					 	   ResourceManager.cpp \
 					 	   SceneManager.cpp \
 					 	   SceneNode.cpp
-includefolderdir = $(includedir)/himinbjorg
-includefolder_HEADERS = Himinbjorg.h \
-				  Components/BehaviorComponent.h \
+compfolderdir = $(includedir)/himinbjorg/Components
+compfolder_HEADERS = Components/BehaviorComponent.h \
 				  Components/CameraComponent.h \
 				  Components/ClickableComponent.h \
 				  Components/ClickableOrthoPlane.h \
@@ -47,12 +46,15 @@ includefolder_HEADERS = Himinbjorg.h \
 				  Components/RenderingComponent.h \
 				  Components/Text.h \
 				  Components/TextRenderer.h \
-				  Components/TransformComponent.h \
-				  Systems/BehaviorSystem.h \
+				  Components/TransformComponent.h 
+systfolderdir = $(includedir)/himinbjorg/Systems
+systfolder_HEADERS = Systems/BehaviorSystem.h \
 				  Systems/CameraSystem.h \
 				  Systems/InputSystem.h \
 				  Systems/RenderingSystem.h \
-				  Systems/TransformSystem.h \
+				  Systems/TransformSystem.h 
+corefolderdir = $(includedir)/himinbjorg
+corefolder_HEADERS =  Himinbjorg.h \
 				  GraphicsManager.h \
 				  HiminbjorgRoot.h \
 				  InputManager.h \

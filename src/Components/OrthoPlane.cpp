@@ -48,22 +48,42 @@ namespace Himinbjorg
 	{
 	}
 
-	int OrthoPlane::getLeft()
+	void OrthoPlane::setLeft(GLfloat left)
+	{
+		this->left = left;
+	}
+
+	void OrthoPlane::setTop(GLfloat top)
+	{
+		this->top = top;
+	}
+
+	void OrthoPlane::setWidth(GLfloat width)
+	{
+		this->width = width;
+	}
+
+	void OrthoPlane::setHeight(GLfloat height)
+	{
+		this->height;
+	}
+
+	GLfloat OrthoPlane::getLeft()
 	{
 		return left;
 	}
 
-	int OrthoPlane::getTop()
+	GLfloat OrthoPlane::getTop()
 	{
 		return top;
 	}
 
-	int OrthoPlane::getWidth()
+	GLfloat OrthoPlane::getWidth()
 	{
 		return width;
 	}
 
-	int OrthoPlane::getHeight()
+	GLfloat OrthoPlane::getHeight()
 	{
 		return height;
 	}
