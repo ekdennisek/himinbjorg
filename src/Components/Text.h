@@ -12,6 +12,11 @@ namespace Himinbjorg
 		Text(std::string text, int size, GLfloat left, GLfloat top);
 		virtual ~Text();
 
+		void setText(std::string text);
+		void setSize(int size);
+		void setLeft(GLfloat left);
+		void setTop(GLfloat top);
+
 		std::string getText();
 		int getSize();
 		GLfloat getLeft();

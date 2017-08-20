@@ -22,6 +22,26 @@ namespace Himinbjorg
 	{
 	}
 
+	void Text::setText(std::string text)
+	{
+		this->text = text;
+	}
+
+	void Text::setSize(int size)
+	{
+		this->size = size;
+	}
+
+	void Text::setLeft(GLfloat left)
+	{
+		this->left = left;
+	}
+
+	void Text::setTop(GLfloat top)
+	{
+		this->top = top;
+	}
+
 	std::string Text::getText()
 	{
 		return text;
