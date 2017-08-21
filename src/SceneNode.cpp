@@ -29,11 +29,6 @@ namespace Himinbjorg
     	children.clear();
     }
 
-    void SceneNode::setParent(SceneNode *parent)
-    {
-    	this->parent = parent;
-    }
-
     /*
      * Methods for manipulating components
      */
@@ -85,13 +80,23 @@ namespace Himinbjorg
     {
     	return &children;
     }
+    
+    void SceneNode::setParent(SceneNode *parent)
+    {
+        this->parent = parent;
+    }
 
-    SceneNode *SceneNode::getParent()
+    void SceneNode::setIdentifier(std::string identifier)
+    {
+        this->identifier = identifier;
+    }
+
+    SceneNode *SceneNode::getParent() const
     {
     	return parent;
     }
 
-    std::string SceneNode::getIdentifier()
+    std::string SceneNode::getIdentifier() const
     {
     	return identifier;
     }

@@ -19,16 +19,18 @@ namespace Himinbjorg
         void removeComponent(Component *component);
         std::vector<Component*> findComponents(ComponentType type);
 
-        // Skriv en setParent som anropas av föräldern när man anropar addChild()
-        void setParent(SceneNode *parent);
-
         // Add, remove and get a list of the children
         void addChild(SceneNode *child);
         void removeChild(SceneNode *child);
         std::set<SceneNode*> *getChildren();
 
-        SceneNode *getParent();
-        std::string getIdentifier();
+        // Setters
+        void setParent(SceneNode *parent);
+        void setIdentifier(std::string identifier);
+
+        // Getters
+        SceneNode *getParent() const;
+        std::string getIdentifier() const;
     private:
         SceneNode *parent;
         std::string identifier;
