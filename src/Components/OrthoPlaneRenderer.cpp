@@ -20,4 +20,14 @@ namespace Himinbjorg
 		TransformComponent *transform = (TransformComponent*) parent->findComponents(TRANSFORM_COMPONENT).front();
 		graphicsManager->drawPlaneOrtho(plane, material, transform->getTransformtionMatrix());
 	}
+
+	void OrthoPlaneRenderer::setPlane(OrthoPlane *plane)
+	{
+		this->plane = plane;
+	}
+
+	OrthoPlane *OrthoPlaneRenderer::getPlane()
+	{
+		return plane;
+	}
 }

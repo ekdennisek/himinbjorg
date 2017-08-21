@@ -17,6 +17,10 @@ namespace Himinbjorg
 		virtual ~OrthoPlaneRenderer();
 
 		void render(GraphicsManager *graphicsManager);
+
+		void setPlane(OrthoPlane *plane);
+
+		OrthoPlane *getPlane();
 	private:
 		OrthoPlane *plane;
 	};
