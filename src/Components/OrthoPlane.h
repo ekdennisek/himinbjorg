@@ -25,6 +25,10 @@ namespace Himinbjorg
 		GLfloat getWidth();
 		GLfloat getHeight();
 	private:
+		void updateVertexBuffer();
+		void updateVbo();
+
+		GLfloat vertexBuffer[30];
 		GLfloat left;
 		GLfloat top;
 		GLfloat width;

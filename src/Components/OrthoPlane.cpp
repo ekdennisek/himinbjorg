@@ -4,24 +4,9 @@
 namespace Himinbjorg
 {
 	OrthoPlane::OrthoPlane(float left, float top, float width, float height)
+	: left(left), top(top), width(width), height(height)
 	{
-        this->left = left;
-        this->top = top;
-        this->width = width;
-        this->height = height;
-
-        GLfloat vertexBuffer[] = {left,top,0,              // XYZ, top left
-        		                  0,1,                     // UV,  top left
-								  left,top+height,0,       // XYZ, bottom left
-								  0,0,                     // UV,  bottom left
-								  left+width,top+height,0, // XYZ, bottom right
-								  1,0,                     // UV,  bottom right
-								  left+width,top,0,        // YXZ, top right
-								  1,1,                     // UV,  top right
-								  left,top,0,              // XYZ, top left
-        		                  0,1,                     // UV,  top left
-								  left+width,top+height,0, // XYZ, bottom right
-								  1,0};                    // UV,  bottom right
+        updateVertexBuffer();
         GLsizei stride = 3*sizeof(GLfloat) + 2*sizeof(GLfloat); // Stride calculated using the VVVTT format
         vertexCount = 6;
 
@@ -48,24 +33,57 @@ namespace Himinbjorg
 	{
 	}
 
+	void OrthoPlane::updateVertexBuffer()
+	{
+		vertexBuffer[0] = left; vertexBuffer[1] = top; vertexBuffer[2] = 0;					// XYZ, top left
+		vertexBuffer[3] = 0; vertexBuffer[4] = 1;											// UV,  top left
+		vertexBuffer[5] = left; vertexBuffer[6] = top+height; vertexBuffer[7] = 0;			// XYZ, bottom left
+		vertexBuffer[8] = 0; vertexBuffer[9] = 0;											// UV,  bottom left
+		vertexBuffer[10] = left+width; vertexBuffer[11] = top+height; vertexBuffer[12] = 0;	// XYZ, bottom right
+		vertexBuffer[13] = 1; vertexBuffer[14] = 0;                     					// UV,  bottom right
+		vertexBuffer[15] = left+width; vertexBuffer[16] = top; vertexBuffer[17] = 0;        // YXZ, top right
+		vertexBuffer[18] = 1; vertexBuffer[19] = 1;                     					// UV,  top right
+		vertexBuffer[20] = left; vertexBuffer[21] = top; vertexBuffer[22] = 0;              // XYZ, top left
+		vertexBuffer[23] = 0; vertexBuffer[24] = 1;                     					// UV,  top left
+		vertexBuffer[25] = left+width; vertexBuffer[26] = top+height; vertexBuffer[27] = 0; // XYZ, bottom right
+		vertexBuffer[28] = 1; vertexBuffer[29] = 0;                    						// UV,  bottom right
+	}
+
+	void OrthoPlane::updateVbo()
+	{
+		glBindVertexArray(vao);
+			glBindBuffer(GL_ARRAY_BUFFER, vbo);
+			glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertexBuffer), vertexBuffer);
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
+		glBindVertexArray(0);
+	}
+
 	void OrthoPlane::setLeft(GLfloat left)
 	{
 		this->left = left;
+		updateVertexBuffer();
+		updateVbo();
 	}
 
 	void OrthoPlane::setTop(GLfloat top)
 	{
 		this->top = top;
+		updateVertexBuffer();
+		updateVbo();
 	}
 
 	void OrthoPlane::setWidth(GLfloat width)
 	{
 		this->width = width;
+		updateVertexBuffer();
+		updateVbo();
 	}
 
 	void OrthoPlane::setHeight(GLfloat height)
 	{
 		this->height = height;
+		updateVertexBuffer();
+		updateVbo();
 	}
 
 	GLfloat OrthoPlane::getLeft()
