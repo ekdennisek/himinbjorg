@@ -14,10 +14,13 @@ namespace Himinbjorg
 
         // Setters
         void setShader(GLuint shader);
+        void setTexture(GLuint texture);
+        void setColor(float *rgba);
 
         // Getters
-        GLuint getShader();
-        GLuint getTexture();
+        GLuint getShader() const;
+        GLuint getTexture() const;
+        const float *getColor() const;
     private:
         GLuint shader;
         GLuint texture;

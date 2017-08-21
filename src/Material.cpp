@@ -26,13 +26,28 @@ namespace Himinbjorg
     	this->shader = shader;
     }
 
-    GLuint Material::getShader()
+    void Material::setTexture(GLuint texture)
+    {
+        this->texture = texture;
+    }
+
+    void Material::setColor(float *rgba)
+    {
+        memcpy(this->rgba, rgba, sizeof(float)*4);
+    }
+
+    GLuint Material::getShader() const
     {
     	return shader;
     }
 
-    GLuint Material::getTexture()
+    GLuint Material::getTexture() const
     {
     	return texture;
+    }
+
+    const float *Material::getColor() const
+    {
+        return rgba;
     }
 }
