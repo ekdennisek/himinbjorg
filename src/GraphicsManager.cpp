@@ -154,8 +154,9 @@ namespace Himinbjorg
     {
     	Glyph *glyphs = ResourceManager::getInstance().getFont("truetype/ubuntu-font-family/Ubuntu-C.ttf", size);
 
-    	glUseProgram(material->getShader());
-    	glUniform3f(glGetUniformLocation(material->getShader(), "textColor"), 0.0f, 0.0f, 0.0f);
+		glUseProgram(material->getShader());
+		const float *rgba = material->getColor();
+    	glUniform3f(glGetUniformLocation(material->getShader(), "textColor"), rgba[0], rgba[1], rgba[2]);
     	glActiveTexture(GL_TEXTURE0);
     	glBindVertexArray(vao);
 
