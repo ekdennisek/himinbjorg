@@ -14,6 +14,7 @@ namespace Himinbjorg
 	public:
 		RenderingComponent(Material *material, int depth = -1);
 		virtual ~RenderingComponent();
+
 		bool operator<(const RenderingComponent &other);
 
 		virtual void render(GraphicsManager *graphicsManager) = 0;
@@ -23,8 +24,8 @@ namespace Himinbjorg
 		void setDepth(int depth);
 
 		// Getters
-		Material *getMaterial();
-		int getDepth();
+		Material *getMaterial() const;
+		int getDepth() const;
 	protected:
 		Material *material;
 		int depth; // Used to determine draw order
