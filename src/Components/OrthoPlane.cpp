@@ -65,7 +65,7 @@ namespace Himinbjorg
 
 	void OrthoPlane::setHeight(GLfloat height)
 	{
-		this->height;
+		this->height = height;
 	}
 
 	GLfloat OrthoPlane::getLeft()
