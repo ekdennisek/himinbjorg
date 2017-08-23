@@ -122,9 +122,18 @@ namespace Himinbjorg
 
     void GraphicsManager::drawPlaneOrtho(OrthoPlane *plane, Material *material, glm::mat4 *modelMatrix)
     {
-    	glUseProgram(material->getShader());
-    	glBindTexture(GL_TEXTURE_2D, material->getTexture());
-    	glBindVertexArray(plane->getVao());
+		glUseProgram(material->getShader());
+		// If no texture is to be used
+		if(material->getTexture() == 0)
+		{
+			// Bind the loaded color
+			GLint colorHandle = glGetUniformLocation(material->getShader(), "color");
+			glUniform4fv(colorHandle, 1, material->getColor());
+		} else {
+			// Bind the loaded texture
+    		glBindTexture(GL_TEXTURE_2D, material->getTexture());
+		}
+		glBindVertexArray(plane->getVao());
 
     	// Projection matrix
     	GLint projectionMatrixHandle = glGetUniformLocation(material->getShader(), "projectionMatrix");

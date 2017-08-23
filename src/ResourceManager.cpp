@@ -221,10 +221,10 @@ namespace Himinbjorg
 
     	std::string shader = materialJSON["shader"].get<std::string>();
     	std::vector<float> color = materialJSON["color"].get<std::vector<float>>();
-    	std::string texture = materialJSON["texture"].get<std::string>();
+    	std::string texture; if(materialJSON["texture"] != nullptr) texture = materialJSON["texture"].get<std::string>();
 
     	float colorArray[] = { color.at(0), color.at(1), color.at(2), color.at(3) };
-    	Material *material = new Material(getShaderPrograms(shader), getTexture(texture), colorArray);
+    	Material *material = new Material(getShaderPrograms(shader), texture.size() > 0 ? getTexture(texture) : 0, colorArray);
     	materials.insert(std::pair<std::string, Material*>(identifier, material));
     }
 
