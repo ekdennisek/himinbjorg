@@ -1,8 +1,9 @@
 #ifndef PHYSICSMANAGER_H
 #define PHYSICSMANAGER_H
 
-#include <btBulletCollisionCommon.h>
-#include <btBulletDynamicsCommon.h>
+#include "IMessageBusListener.h"
+#include <bullet/btBulletCollisionCommon.h>
+#include <bullet/btBulletDynamicsCommon.h>
 #include <functional>
 #include <vector>
 #include <glm/gtc/matrix_transform.hpp>
@@ -14,7 +15,7 @@ namespace Himinbjorg
     class MessageBus;
     class GraphicsManager;
 
-	class PhysicsManager : public btIDebugDraw
+	class PhysicsManager : public btIDebugDraw, public IMessageBusListener
 	{
 	public:
 		PhysicsManager(MessageBus *messageBus, GraphicsManager *graphicsManager);
@@ -36,12 +37,10 @@ namespace Himinbjorg
 		virtual int  getDebugMode() const;
 
 		// Message bus listener
-		Message* messageBusListener(Message *msg);
+		Message* onMessage(Message *msg);
 	private:
 		MessageBus *messageBus;
 		GraphicsManager *graphicsManager;
-
-		std::function<Message*(Message*)> callbackReference;
 
 		// Line debug drawing
 		std::vector<btVector3> froms;

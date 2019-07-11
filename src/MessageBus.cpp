@@ -1,4 +1,6 @@
 #include "MessageBus.h"
+#include "Message.h"
+#include "IMessageBusListener.h"
 #include <iostream>
 
 namespace Himinbjorg
@@ -11,25 +13,31 @@ namespace Himinbjorg
     {
     }
 
-    void MessageBus::registerListener(std::function<Message*(Message*)> listener)
+    void MessageBus::registerListener(IMessageBusListener *listener)
     {
         listeners.push_back(listener);
         std::cout << "MessageBus::registerListener(): Registering listener. " << listeners.size() << " listener(s) currently registered.\n";
     }
 
-    void MessageBus::removeListener(std::function<Message*(Message*)> listener)
+    void MessageBus::removeListener(IMessageBusListener *listener)
     {
-        for(std::vector<std::function<Message*(Message*)>>::iterator it = listeners.begin(); listeners.size() && it != listeners.end(); it++)
-            if(it->target<Message*(Message*)>() == listener.target<Message*(Message*)>())
+        // For every registered message listener
+        for(auto it = listeners.begin(); it != listeners.end(); it++) {
+            // If the current std::function::target is the same as the requested
+            if((*it) == listener) {
+                // Remove it from the subscribed listener list
                 listeners.erase(it);
 
-        std::cout << "MessageBus::registerListener(): Unregistering listener. " << listeners.size() << " listener(s) currently registered.\n";
+                std::cout << "MessageBus::registerListener(): Unregistering listener. " << listeners.size() << " listener(s) currently registered.\n";
+                return;
+            }
+        }
     }
 
-    void MessageBus::sendMessage(Message* message)
+    void MessageBus::sendMessage(Message* message) const
     {
-        for(std::vector<std::function<Message*(Message*)>>::iterator it = listeners.begin(); message && it != listeners.end(); it++) {
-            (*it)(message);
+        for(auto it = listeners.begin(); message && it != listeners.end(); it++) {
+            (*it)->onMessage(message);
         }
 
         if(message) delete message;

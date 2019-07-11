@@ -1,12 +1,15 @@
 #ifndef MESSAGEBUS_H
 #define MESSAGEBUS_H
 
-#include "Message.h"
 #include <vector>
 #include <functional>
 
 namespace Himinbjorg
 {
+    // Forward declarations
+    class IMessageBusListener;
+    class Message;
+
     class MessageBus
     {
     public:
@@ -14,13 +17,13 @@ namespace Himinbjorg
         virtual ~MessageBus();
 
         // Message listeners
-        void registerListener(std::function<Message*(Message*)> listener);
-        void removeListener(std::function<Message*(Message*)> listener);
+        void registerListener(IMessageBusListener *listener);
+        void removeListener(IMessageBusListener *listener);
 
         // Messages
-        void sendMessage(Message* message);
+        void sendMessage(Message *message) const;
     private:
-        std::vector<std::function<Message*(Message*)>> listeners;
+        std::vector<IMessageBusListener*> listeners;
     };
 }
 

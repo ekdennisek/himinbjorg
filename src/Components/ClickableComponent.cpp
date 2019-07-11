@@ -1,5 +1,6 @@
 #include "ClickableComponent.h"
 #include "../MessageBus.h"
+#include "Message.h"
 
 namespace Himinbjorg
 {

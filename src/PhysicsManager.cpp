@@ -1,8 +1,9 @@
 #include "PhysicsManager.h"
 #include "MessageBus.h"
+#include "Message.h"
 #include "GraphicsManager.h"
-#include <GL/glew.h>
 #include "Components/ClickableComponent.h"
+#include <GL/glew.h>
 
 namespace Himinbjorg
 {
@@ -12,8 +13,7 @@ namespace Himinbjorg
 		this->graphicsManager = graphicsManager;
 
 		// Set up the message bus listener
-		callbackReference = std::bind(&PhysicsManager::messageBusListener, this, std::placeholders::_1);
-		messageBus->registerListener(callbackReference);
+		messageBus->registerListener(this);
 
 		// Initiate the Bullet world for game objects
 		collisionConfiguration = new btDefaultCollisionConfiguration();
@@ -37,7 +37,7 @@ namespace Himinbjorg
 	PhysicsManager::~PhysicsManager()
 	{
 		// Unregister message bus listener
-		messageBus->removeListener(callbackReference);
+		messageBus->removeListener(this);
 
 		// Deallocate every GUI collision world related object
 		if(guiDynamicsWorld) delete guiDynamicsWorld;
@@ -159,7 +159,7 @@ namespace Himinbjorg
 	void PhysicsManager::setDebugMode(int debugMode) {}
 	int  PhysicsManager::getDebugMode() const { return btIDebugDraw::DBG_DrawWireframe; }
 
-	Message *PhysicsManager::messageBusListener(Message *msg)
+	Message *PhysicsManager::onMessage(Message *msg)
 	{
 		if(msg->type == Message::MOUSE_INPUT && msg->subType == Message::MOUSE_CLICK)
 		{
