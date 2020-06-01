@@ -6,7 +6,7 @@
 #include <bullet/btBulletDynamicsCommon.h>
 #include <functional>
 #include <vector>
-#include <glm/gtc/matrix_transform.hpp>
+#include "../lib/glm/glm/gtc/matrix_transform.hpp"
 
 namespace Himinbjorg
 {

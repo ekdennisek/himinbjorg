@@ -6,7 +6,7 @@
 #include <GL/glew.h>
 #include <ft2build.h>	// TODO https://stackoverflow.com/questions/13978775/how-to-avoid-include-dependency-to-external-library
 #include FT_FREETYPE_H	// TODO https://stackoverflow.com/questions/13978775/how-to-avoid-include-dependency-to-external-library
-#include <glm/glm.hpp>	// glm::ivec2
+#include "../lib/glm/glm/glm.hpp"	// glm::ivec2
 
 namespace Himinbjorg
 {

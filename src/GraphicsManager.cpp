@@ -4,8 +4,8 @@
 #include "Components/Lines.h"
 #include <GL/glew.h>
 #include <iostream>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include "../lib/glm/glm/gtc/matrix_transform.hpp"
+#include "../lib/glm/glm/gtc/type_ptr.hpp"
 #include "Components/OrthoPlane.h"
 #include "ResourceManager.h"
 

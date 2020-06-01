@@ -1,10 +1,10 @@
 #include "ResourceManager.h"
 #include "Components/Mesh.h"
 #include "Material.h"
-#include "../include/json.hpp"
+#include "../lib/json/single_include/nlohmann/json.hpp"
 #include <fstream>
 #include <vector>
-#include <SOIL/SOIL.h>
+#include "../lib/soil/include/SOIL/SOIL.h"
 #include <iostream>
 
 namespace Himinbjorg

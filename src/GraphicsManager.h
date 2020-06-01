@@ -3,7 +3,7 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <glm/mat4x4.hpp>
+#include "../lib/glm/glm/mat4x4.hpp"
 #include <string>
 
 namespace Himinbjorg

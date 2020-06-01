@@ -2,11 +2,11 @@
 #define CAMERACOMPONENT_H
 
 #include "Component.h"
-#include <glm/mat4x4.hpp>
+#include "../../lib/glm/glm/mat4x4.hpp"
 
 namespace Himinbjorg
 {
-    // Forward declaration
+    // Forward declarations
     class SceneNode;
     class GraphicsManager;
 

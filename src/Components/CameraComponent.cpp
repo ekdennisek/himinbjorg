@@ -2,7 +2,7 @@
 #include "../SceneNode.h"
 #include "../GraphicsManager.h"
 #include "TransformComponent.h"
-#include <glm/gtc/matrix_transform.hpp> // perspective(), lookAt()
+#include "../../lib/glm/glm/gtc/matrix_transform.hpp" // perspective(), lookAt()
 
 namespace Himinbjorg
 {

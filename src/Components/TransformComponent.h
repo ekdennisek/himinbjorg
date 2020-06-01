@@ -2,7 +2,7 @@
 #define TRANSFORMCOMPONENT_H
 
 #include "Component.h"
-#include <glm/mat4x4.hpp>
+#include "../../lib/glm/glm/mat4x4.hpp"
 
 namespace Himinbjorg
 {

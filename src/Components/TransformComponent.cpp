@@ -2,7 +2,7 @@
 #include "../SceneNode.h"
 #include <cstring>
 #include <GL/glew.h>
-#include <glm/gtc/matrix_transform.hpp>
+#include "../../lib/glm/glm/gtc/matrix_transform.hpp"
 
 namespace Himinbjorg
 {
