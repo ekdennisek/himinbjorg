@@ -2,8 +2,8 @@
 #define PHYSICSMANAGER_H
 
 #include "IMessageBusListener.h"
-#include <bullet/btBulletCollisionCommon.h>
-#include <bullet/btBulletDynamicsCommon.h>
+#include <btBulletCollisionCommon.h>
+#include <btBulletDynamicsCommon.h>
 #include <functional>
 #include <vector>
 #include "../lib/glm/glm/gtc/matrix_transform.hpp"

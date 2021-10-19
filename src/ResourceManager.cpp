@@ -4,7 +4,7 @@
 #include "../lib/json/single_include/nlohmann/json.hpp"
 #include <fstream>
 #include <vector>
-#include "../lib/soil/include/SOIL/SOIL.h"
+#include <SOIL.h>
 #include <iostream>
 
 namespace Himinbjorg
@@ -64,7 +64,7 @@ namespace Himinbjorg
         std::ifstream file(filepath.c_str());
         if(!file.is_open())
             std::cout << "ResourceSystem::loadMesh(): Couldn't open file.\n";
-        else 
+        else
             std::cout << "ResourceSystem::loadMesh(): Reading from " << filepath << "\n";
 
         // Parse file
@@ -92,15 +92,15 @@ namespace Himinbjorg
                     vertex[1] = atof(strtok(NULL, " "));
                     vertex[2] = atof(strtok(NULL, " "));
                     vertices.push_back(vertex);
-                } 
-                else if(strcmp(token, "vt") == 0) 
+                }
+                else if(strcmp(token, "vt") == 0)
                 {
                     // Store vertex texture
                     float *texture = new float[2];
                     texture[0] = atof(strtok(NULL, " "));
                     texture[1] = atof(strtok(NULL, " "));
                     textures.push_back(texture);
-                } 
+                }
                 else if(strcmp(token, "vn") == 0)
                 {
                     // Store vertex normal
@@ -109,7 +109,7 @@ namespace Himinbjorg
                     normal[1] = atof(strtok(NULL, " "));
                     normal[2] = atof(strtok(NULL, " "));
                     normals.push_back(normal);
-                } 
+                }
                 else if(strcmp(token, "f") == 0)
                 {
                     // Store face data
@@ -179,7 +179,7 @@ namespace Himinbjorg
 //        }
 
         // Deallocate the arrays that are stores
-        while(!vertices.empty()) 
+        while(!vertices.empty())
         {
             delete[] vertices.back();
             vertices.pop_back();

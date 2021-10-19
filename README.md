@@ -1,36 +1,24 @@
 # himinbjorg
 Minimalistic game engine written exclusively in order to learn OpenGL.
 
-# Dependencies
-https://github.com/nlohmann/json
-http://rapidxml.sourceforge.net/
-
 # Building
 
-Prepare the project for libtool
+Clone the repository and the submodules
 
-    libtoolize
+```
+git clone git@github.com:ekdennisek/himinbjorg.git
+git submodule update --init --recursive
+```
 
-Generate `aclocal.m4`
+Also, make sure you have the necessary dependencies. On Ubuntu, simply install them using apt
 
-    aclocal
+```
+apt install libicu-dev libbullet-dev libglfw3-dev libglew-dev libfreetype-dev libsoil-dev
+```
 
-Create a template header
+Then compile it using Meson
 
-    autoheader
-
-Add any missing standard files
-
-    automake --add-missing
-
-Generate configuration scripts
-
-    autoconf
-
-Run configuration scripts
-
-    ./configure
-
-Finally, build and install
-
-    make && make install
+```
+meson build && cd build
+meson compile
+```
